@@ -1,0 +1,11 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Éventuels fichiers de config sensibles (si tu en ajoutes plus tard)
+config.private.json
+.env
+
+# Dossiers d'IDE
+.vscode/
+.idea/
